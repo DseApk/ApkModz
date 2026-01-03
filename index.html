@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>‍</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2d3436;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #636e72;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tasks-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .task {
+            background-color: #f8f9fa;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .task:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .task-header {
+            margin-bottom: 25px;
+        }
+
+        .task-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0984e3;
+            margin-bottom: 8px;
+        }
+
+        .task-instruction {
+            color: #636e72;
+            font-size: 1rem;
+        }
+
+        .task-button {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #0984e3;
+            color: white;
+        }
+
+        .task-button i {
+            font-size: 1.2rem;
+        }
+
+        .task-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .task-button:hover:not(:disabled) {
+            background-color: #0770c4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(9, 132, 227, 0.3);
+        }
+
+        .get-link-container {
+            margin-top: 20px;
+        }
+
+        .get-link-button {
+            padding: 18px 60px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.8px;
+            box-shadow: 0 6px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        .get-link-button:disabled {
+            background: #b2bec3;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .get-link-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.4);
+        }
+
+        .task-completed {
+            color: #00b894;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .task-completed.show {
+            display: block;
+        }
+
+        .task-completed i {
+            margin-right: 8px;
+        }
+
+        .final-link-display {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #636e72;
+            display: none;
+        }
+
+        .final-link-display.show {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .task {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .task-button {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+
+            .get-link-button {
+                padding: 16px 40px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>‍</h1>
+            <p>‍</p>
+        </div>
+
+        <div class="tasks-container">
+            <!-- Task 1 -->
+            <div class="task">
+                <div class="task-header">
+                    <div class="task-title">TASK 1</div>
+                    <div class="task-instruction">Click the button below and join our Telegram Group</div>
+                </div>
+                <button class="task-button" id="task1Button">
+                    <i class="fab fa-telegram"></i> JOIN ON TELEGRAM
+                </button>
+                <div class="task-completed" id="task1Completed">
+                    <i class="fas fa-check-circle"></i> Telegram Group joined
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task">
+                <div class="task-header">
+                    <div class="task-title">TASK 2</div>
+                    <div class="task-instruction">Click the button below and join our Telegram Channel</div>
+                </div>
+                <button class="task-button" id="task2Button" disabled>
+                    <i class="fab fa-telegram"></i> JOIN ON TELEGRAM
+                </button>
+                <div class="task-completed" id="task2Completed">
+                    <i class="fas fa-check-circle"></i> Telegram Channel joined
+                </div>
+            </div>
+        </div>
+
+        <div class="get-link-container">
+            <button class="get-link-button" id="getLinkButton" disabled>
+                <i class="fas fa-link"></i> GET LINK
+            </button>
+            <div class="final-link-display" id="finalLinkDisplay">
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Telegram URLs
+        const telegramGroupURL = "https://t.me/ffbdhamzagroup";
+        const telegramChannelURL = "https://t.me/ffbdhamzachannel";
+        const finalLinkURL = "https://t.me/ffbdhamzachannel";
+
+        // DOM Elements
+        const task1Button = document.getElementById('task1Button');
+        const task2Button = document.getElementById('task2Button');
+        const getLinkButton = document.getElementById('getLinkButton');
+        const task1Completed = document.getElementById('task1Completed');
+        const task2Completed = document.getElementById('task2Completed');
+        const finalLinkDisplay = document.getElementById('finalLinkDisplay');
+
+        // Check if user has already completed tasks (using localStorage)
+        let task1Done = localStorage.getItem('task1Done') === 'true';
+        let task2Done = localStorage.getItem('task2Done') === 'true';
+
+        // Initialize the page based on previous progress
+        function initializePage() {
+            if (task1Done) {
+                task1Button.disabled = true;
+                task1Completed.classList.add('show');
+                task2Button.disabled = false;
+            }
+            
+            if (task2Done) {
+                task2Button.disabled = true;
+                task2Completed.classList.add('show');
+                getLinkButton.disabled = false;
+                finalLinkDisplay.classList.add('show');
+            }
+        }
+
+        // Handle Task 1 button click
+        task1Button.addEventListener('click', function() {
+            // Open Telegram group in new tab
+            window.open(telegramGroupURL, '_blank');
+            
+            // Mark task as completed
+            task1Done = true;
+            localStorage.setItem('task1Done', 'true');
+            
+            // Update UI
+            task1Button.disabled = true;
+            task1Completed.classList.add('show');
+            task2Button.disabled = false;
+            
+            // Show message
+            setTimeout(() => {
+                alert('Thank you for joining our Telegram Group! Now please complete Task 2.');
+            }, 500);
+        });
+
+        // Handle Task 2 button click
+        task2Button.addEventListener('click', function() {
+            // Open Telegram channel in new tab
+            window.open(telegramChannelURL, '_blank');
+            
+            // Mark task as completed
+            task2Done = true;
+            localStorage.setItem('task2Done', 'true');
+            
+            // Update UI
+            task2Button.disabled = true;
+            task2Completed.classList.add('show');
+            getLinkButton.disabled = false;
+            finalLinkDisplay.classList.add('show');
+            
+            // Show message
+            setTimeout(() => {
+                alert('Thank you for joining our Telegram Channel! You can now access the final link.');
+            }, 500);
+        });
+
+        // Handle GET LINK button click
+        getLinkButton.addEventListener('click', function() {
+            if (!this.disabled) {
+                // Open the final link in new tab
+                window.open(finalLinkURL, '_blank');
+                
+                // Optional: Show confirmation
+                setTimeout(() => {
+                    alert('Final link opened! Thank you for completing all tasks.');
+                }, 300);
+            }
+        });
+
+        // Initialize the page
+        initializePage();
+    </script>
+</body>
+</html>
